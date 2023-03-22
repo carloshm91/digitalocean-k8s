@@ -8,6 +8,4 @@ RUN curl -LO "https://dl.k8s.io/release/v1.26.2/bin/linux/amd64/kubectl"
 RUN curl -LO "https://dl.k8s.io/v1.26.2/bin/linux/amd64/kubectl.sha256"
 RUN echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
 RUN chmod +x kubectl
-RUN mkdir -p ~/.local/bin
-RUN mv ./kubectl ~/.local/bin/kubectl
-RUN export PATH="~/.local/bin:$PATH"
+RUN mv ./kubectl /usr/local/bin/kubectl
